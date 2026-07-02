@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!--
+    Every field, column name, and generator strategy is declared by hand here.
+    This file has to be kept in sync manually with the Book.java class -
+    rename a field in Java and this mapping silently goes stale until it
+    fails at runtime. This hand-written duplication is exactly the kind of
+    boilerplate that annotation-based and Spring Data JPA configuration
+    later remove.
+-->
+<hibernate-mapping package="com.example.xmldemo">
+    <class name="Book" table="BOOK_XML">
+        <id name="id" column="ID" type="long">
+            <generator class="increment"/>
+        </id>
+        <property name="title" column="TITLE" type="string" length="200" not-null="true"/>
+        <property name="author" column="AUTHOR" type="string" length="150" not-null="true"/>
+        <property name="price" column="PRICE" type="double"/>
+    </class>
+</hibernate-mapping>
